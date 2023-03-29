@@ -7,7 +7,6 @@ println(TabLevel*"Open MajoranaReps_MathLink.jl")
 TabLevel=TabLevel*"    "
 
 
-println("Loading")
 using MathLink
 using MajoranaReps
 
@@ -27,7 +26,9 @@ end
 
 
 
-
+import Base.isreal
+isreal(x::MathLink.WExpr) = false  ##Do not assume real
+isreal(::MathLink.WSymbol) = false ##Do not assume real
 
 TabLevel=TabLevel[1:end-4]
 println(TabLevel*"Close MajoranaReps_MathLink.jl")
