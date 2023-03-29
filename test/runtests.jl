@@ -23,6 +23,16 @@ MathLink.set_GreedyEval(true)
     @test "$(W"a"*Ket())" == "(a) |0>"
     @test "$((W"a"+W"a")*Ket())" == "(W\"Times\"(2, W\"a\")) |0>"
     @test "$((W"a"+W"b")*Ket())" == "(W\"Plus\"(W\"a\", W\"b\")) |0>"
-    
+
+
+    @test length(W"a") == 1
+    @test length(W"a"+W"b") == 1
+
+    @test collect(W"a") == Any[W"a"]
+    @test collect(W"a"+W"b") == Any[W"a"+W"b"]
+
+    @test W"a" .* fill(1) == [W"a"]
+    @test W"a" .* fill(1,1) == [W"a"]
+    @test W"a" .* fill(1,2) == [W"a",W"a"]   
 end
 

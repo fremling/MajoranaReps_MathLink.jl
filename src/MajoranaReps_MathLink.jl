@@ -27,8 +27,20 @@ end
 
 
 import Base.isreal
-isreal(x::MathLink.WExpr) = false  ##Do not assume real
-isreal(::MathLink.WSymbol) = false ##Do not assume real
+isreal(::MathLink.WTypes) = false  ##Do not assume real
+
+import Base.length
+length(::MathLink.WTypes) = 1 ##We treat them as scalars
+
+import Base.iterate
+iterate(x::MathLink.WTypes) =  (x, nothing)
+function iterate(x::MathLink.WTypes, state)
+    if state == nothing
+        return nothing
+    else
+        error("state = $state")
+    end
+end
 
 TabLevel=TabLevel[1:end-4]
 println(TabLevel*"Close MajoranaReps_MathLink.jl")
