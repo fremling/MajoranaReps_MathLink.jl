@@ -1,7 +1,7 @@
 name = "MajoranaReps_MathLink"
 uuid = "b31d3d4c-bef0-4e65-bcd1-e17c4090d72f"
 authors = ["Mikael Fremling <micke.fremling@gmail.com>"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 MajoranaReps = "4d2ab388-4915-11ec-2296-b707a6cee44b"
